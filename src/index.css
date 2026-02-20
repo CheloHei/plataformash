@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 97%;
+    --foreground: 220 20% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 14%;
+
+    --primary: 49 100% 50%;
+    --primary-foreground: 220 20% 14%;
+
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 220 20% 14%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 3 97% 44%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 3 97% 44%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 49 100% 50%;
+
+    --radius: 0.75rem;
+
+    --shell-yellow: 49 100% 50%;
+    --shell-red: 3 97% 44%;
+    --shell-dark: 220 20% 14%;
+    --shell-gray-100: 220 14% 96%;
+    --shell-gray-200: 220 13% 91%;
+    --shell-gray-300: 220 11% 80%;
+    --shell-gray-500: 220 10% 46%;
+    --shell-gray-700: 220 15% 28%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 14%;
+    --sidebar-primary: 3 97% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 49 100% 95%;
+    --sidebar-accent-foreground: 220 20% 14%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 49 100% 50%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 18% 13%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 49 100% 50%;
+    --primary-foreground: 220 20% 14%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 3 97% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 3 97% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 49 100% 50%;
+
+    --shell-gray-100: 220 15% 18%;
+    --shell-gray-200: 220 15% 22%;
+    --shell-gray-300: 220 12% 35%;
+    --shell-gray-500: 220 10% 55%;
+    --shell-gray-700: 220 10% 75%;
+
+    --sidebar-background: 220 18% 13%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 3 97% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 49 100% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 49 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .shell-gradient {
+    background: linear-gradient(135deg, hsl(49 100% 50%) 0%, hsl(40 100% 50%) 100%);
+  }
+
+  .shell-gradient-red {
+    background: linear-gradient(135deg, hsl(3 97% 44%) 0%, hsl(10 90% 50%) 100%);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply shadow-lg -translate-y-1;
+  }
+}
