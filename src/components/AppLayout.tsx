@@ -23,6 +23,7 @@ import {
   Settings,
   Sun,
   Moon,
+  Trash2,
 } from "lucide-react";
 import {  userEmail, userRole } from "@/data/mockData";
 import { authService } from "@/services/authService";
@@ -47,6 +48,26 @@ const AppLayout = ({ children, breadcrumbs }: AppLayoutProps) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
+
+  const limpiarCursos = () => {
+    // Obtener todas las claves que empiezan con "exam_sessions"
+    const keysToDelete: string[] = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith("exam_sessions")) {
+        keysToDelete.push(key);
+      }
+    }
+    
+    // Eliminar todas las claves encontradas
+    keysToDelete.forEach((key) => {
+      localStorage.removeItem(key);
+    });
+
+    window.location.reload(); // Recargar la página para reflejar los cambios
+    
+    console.log(`Se eliminaron ${keysToDelete.length} sesiones de examen`);
+  };
 
   const handleLogout = async () => {
     try {
@@ -223,6 +244,12 @@ const AppLayout = ({ children, breadcrumbs }: AppLayoutProps) => {
                   </div>
                 </div>
                 <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <button className="w-full flex items-center gap-2 cursor-pointer" onClick={limpiarCursos}>
+                    <Trash2 size={16} />
+                    <span>Limpiar cursos</span>
+                  </button>
+                </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <button className="w-full flex items-center gap-2 cursor-pointer">
                     <User size={16} />
