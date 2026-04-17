@@ -39,9 +39,13 @@ export function LoginPage() {
             setAuth(response);
             setHydrated(true);
             navigate('/');
-        } catch (err) {
-            const apiError = err as ApiError;
-            setError(apiError.message || 'Error al iniciar sesión');
+        } catch (err: unknown) {
+            console.error('Login error:', err);
+            if (err && typeof err === 'object' && 'message' in err) {
+                setError((err as { message: string }).message || 'Error al iniciar sesión');
+            } else {
+                setError('Error al iniciar sesión');
+            }
         } finally {
             setIsLoading(false);
         }

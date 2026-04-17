@@ -63,6 +63,15 @@ apiClient.interceptors.response.use(
 
         // Si el error es 401 y no es un retry
         if (error.response?.status === 401 && !originalRequest._retry) {
+            // Si es el endpoint de login, dejar que el error llegue al catch del formulario
+            if (originalRequest.url?.includes('/users/login')) {
+                const apiError: ApiError = {
+                    message: 'Usuario o contraseña incorrectos',
+                    status: 401,
+                };
+                return Promise.reject(apiError);
+            }
+
             if (isRefreshing) {
                 // Si ya se está refrescando el token, añade a la cola
                 return new Promise((resolve, reject) => {

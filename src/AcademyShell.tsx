@@ -14,7 +14,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/plataformash/">
+        <BrowserRouter basename={import.meta.env.PROD ? "/plataformash/" : "/"}>
           <CursoRoutes />
         </BrowserRouter>
       </TooltipProvider>
