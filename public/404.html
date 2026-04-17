@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirigiendo...</title>
     <script>
-        // Redirigir todas las rutas a index.html
-        var path = window.location.pathname.replace(/\/$/, '');
-        var redirect = path + (window.location.search || '') + (window.location.hash || '');
-        window.location.replace('/plataformash/index.html?redirect=' + encodeURIComponent(redirect));
+        // Guardar la ruta que se intentó acceder
+        var l = window.location;
+        var pathname = l.pathname;
+        var search = l.search;
+        var hash = l.hash;
+        
+        // Guardar en sessionStorage para que index.html lo pueda leer
+        sessionStorage.setItem('redirect', pathname + search + hash);
+        
+        // Redirigir a index.html
+        window.location.replace('/plataformash/');
     </script>
 </head>
 <body>
