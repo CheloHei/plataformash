@@ -1,73 +1,33 @@
-# Welcome to your Lovable project
+# Plataforma de Entrenamiento Shell
 
-## Project info
+Aplicación web de e-learning desarrollada para Shell, orientada a la capacitación interna del personal de estaciones de servicio. Permite a los empleados completar cursos, ver videos instructivos, rendir exámenes y hacer seguimiento de su progreso de forma progresiva.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Funcionalidades
 
-## How can I edit this code?
+- **Autenticación** con credenciales corporativas y persistencia de sesión
+- **Dashboard** con estadísticas en tiempo real de progreso del usuario
+- **Catálogo de cursos** organizados por módulos, con progresión secuencial (el Módulo 2 requiere completar el Módulo 1)
+- **Lecciones con video** embebido desde YouTube directamente en la card del curso
+- **Exámenes por lección** con sistema de puntaje (correcto / parcial / fallido) y control de tiempo
+- **Desbloqueo secuencial** de lecciones: se requiere 100% en el examen anterior para avanzar
+- **Progreso en tiempo real** sincronizado desde localStorage, sin necesidad de recargar la página
+- **Página "Mi Progreso"** con estadísticas globales, desglose por módulo y detalle por curso
+- **Tema claro/oscuro** con persistencia de preferencia
+- **Diseño responsive** para mobile y desktop
 
-There are several ways of editing your application.
+## Tecnologías
 
-**Use Lovable**
+- **React 18** + **TypeScript**
+- **Vite** como bundler
+- **Zustand** para manejo de estado global con persistencia en localStorage
+- **React Router v6** con rutas protegidas
+- **Tailwind CSS** + **shadcn/ui** para componentes y estilos
+- **Framer Motion** para animaciones
+- **Axios** con interceptores para manejo de tokens y refresh automático
+- **React Hook Form** + **Zod** para validación de formularios
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Instalación
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)

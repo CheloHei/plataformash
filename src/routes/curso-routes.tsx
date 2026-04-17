@@ -6,6 +6,7 @@ import NotFound from "@/pages/NotFound"
 import Progress from "@/pages/Progress"
 import { Route, Routes } from "react-router-dom"
 import { ProtectedRoute } from "./ProtectedRoute"
+import { AdminRoutes } from "./admin-routes"
 
 
 export const CursoRoutes = () => {
@@ -32,6 +33,7 @@ export const CursoRoutes = () => {
                     <Progress />
                 </ProtectedRoute>
             } />
+            <Route path="/admin/*" element={<AdminRoutes />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     )
